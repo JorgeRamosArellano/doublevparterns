@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:double_v_partners_jorge_test/models/user/user.dart';
 import 'package:double_v_partners_jorge_test/providers/routes/routes_provider.dart';
 import 'package:double_v_partners_jorge_test/providers/users/users_provider.dart';
+import 'package:double_v_partners_jorge_test/utils/utils_formaters.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -58,23 +59,7 @@ class CreateUserController {
 
   CreateUserController(this._ref);
 
-  String monthName(int month) {
-    const months = {
-      1: "Enero",
-      2: "Febrero",
-      3: "Marzo",
-      4: "Abril",
-      5: "Mayo",
-      6: "Junio",
-      7: "Julio",
-      8: "Agosto",
-      9: "Septiembre",
-      10: "Octubre",
-      11: "Noviembre",
-      12: "Diciembre",
-    };
-    return months[month] ?? "Mes inválido";
-  }
+
 
 
   void onTapShowDatePicker() async{
@@ -86,7 +71,7 @@ class CreateUserController {
     );
     if(dateSelected == null) return;
     newUser.birth = dateSelected.toString();
-    userBirth.text = '${dateSelected.day} de ${monthName(dateSelected.month)} del ${dateSelected.year}';
+    userBirth.text = UtilsFormaters.getDateFormatterByString(newUser.birth);
   }
 
 
@@ -108,7 +93,7 @@ class CreateUserController {
   }
 
   int generateUserId(){
-    return Random().nextInt(3000);
+    return Random().nextInt(255);
   }
 
 
