@@ -15,11 +15,19 @@ class CreateUserScreen extends ConsumerStatefulWidget {
 class _CreateUserScreenState extends ConsumerState<CreateUserScreen> {
 
   late CreateUserController controller;
+
+
   @override
   void initState() {
     controller = CreateUserController(ref);
     controller.createUserFormState = GlobalKey<FormState>();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.cleaner();
+    super.dispose();
   }
 
   @override
@@ -124,11 +132,21 @@ class _CreateUserScreenState extends ConsumerState<CreateUserScreen> {
                   ],
                 ),
 
+                for (int i = 0; i < controller.userDirections.length; i++)
                 TextFormField(
-                  controller: controller.userDirection,
-                  decoration: InputDecoration(label: Text('Dirección')),
+                  controller: controller.userDirections[i],
+                  decoration: InputDecoration(label: Text('Dirección #${i+1}')),
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: (value) => (value??'').trim().isEmpty ? 'Este campo no puede estar vacío' : null,
+                ),
+
+                TextButton.icon(
+                  icon: Icon(Icons.add_box_rounded, color: Colors.green),
+                  onPressed: (){
+                    controller.onTapAddNewDirection();
+                    setState(() {});
+                  }, 
+                  label: Text('Agregar otra dirección', style: TextStyle(color: Colors.grey)),
                 ),
 
 

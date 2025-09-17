@@ -103,13 +103,15 @@ class _UserDetailsScreenState extends ConsumerState<UserDetailsScreen> {
                   ),
                 ],
               ),
-        
+
+              for (int i = 0; i < controller.currentUser.location.direction.length; i++)
               TextFormField(
-                initialValue: controller.currentUser.location.direction,
-                decoration: InputDecoration(label: Text('Dirección')),
-                enabled: false,
+                initialValue: controller.currentUser.location.direction[i],
+                decoration: InputDecoration(label: Text('Dirección #${i+1}')),
                 readOnly: true,
+                enabled: false,
               ),
+        
         
         
               FilledButton(

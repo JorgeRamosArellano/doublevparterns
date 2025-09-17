@@ -52,7 +52,7 @@ class CreateUserController {
   };
 
   //Location
-  TextEditingController userDirection = TextEditingController();
+  List<TextEditingController> userDirections = [TextEditingController()];
 
 
 
@@ -75,6 +75,10 @@ class CreateUserController {
   }
 
 
+  void onTapAddNewDirection(){
+    userDirections.add(TextEditingController());
+  }
+
   void validateCreateUserForm(){
 
     if(!createUserFormState.currentState!.validate()) return;
@@ -84,7 +88,7 @@ class CreateUserController {
     newUser.name = userName.text;
     newUser.lastname = userLastname.text;
     newUser.location.country = 'Colombia';
-    newUser.location.direction = userDirection.text;
+    newUser.location.direction = userDirections.map((d) => d.text).toList();
 
     _ref.read(usersProvider.notifier).addUser(newUser);
 
@@ -94,6 +98,15 @@ class CreateUserController {
 
   int generateUserId(){
     return Random().nextInt(255);
+  }
+
+  void cleaner(){
+    userBirth.dispose();
+    userLastname.dispose();
+    userName.dispose();
+    for (var controller in userDirections) {
+      controller.dispose();
+    }
   }
 
 

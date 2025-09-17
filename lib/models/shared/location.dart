@@ -1,10 +1,13 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
 
 class Location {
   String country;
   String state;
   String city;
-  String direction;
+  List<String> direction;
 
   Location({
     required this.country,
@@ -17,7 +20,7 @@ class Location {
     String? country,
     String? state,
     String? city,
-    String? direction,
+    List<String>? direction,
   }) {
     return Location(
       country: country ?? this.country,
@@ -41,11 +44,11 @@ class Location {
       country: map['country'] as String,
       state: map['state'] as String,
       city: map['city'] as String,
-      direction: map['direction'] as String,
+      direction: List<String>.from((map['direction'] as List<String>)),
     );
   }
 
-  factory Location.empty() => Location(country: '', state: '', city: '', direction: '');
+  factory Location.empty() => Location(country: '', state: '', city: '', direction: []);
 
   String toJson() => json.encode(toMap());
 
@@ -64,7 +67,7 @@ class Location {
       other.country == country &&
       other.state == state &&
       other.city == city &&
-      other.direction == direction;
+      listEquals(other.direction, direction);
   }
 
   @override
