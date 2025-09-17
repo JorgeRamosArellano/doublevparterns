@@ -47,6 +47,7 @@ class _CreateUserScreenState extends ConsumerState<CreateUserScreen> {
 
                 TextFormField(
                   controller: controller.userName,
+                  textCapitalization: TextCapitalization.words,
                   decoration: InputDecoration(label: Text('Nombre de usuario')),
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: (value) => (value??'').trim().isEmpty ? 'Este campo no puede estar vacío' : null,
@@ -54,7 +55,8 @@ class _CreateUserScreenState extends ConsumerState<CreateUserScreen> {
 
                 TextFormField(
                   controller: controller.userLastname,
-                  decoration: InputDecoration(label: Text('Apellidos de usuario')),
+                  textCapitalization: TextCapitalization.words,
+                  decoration: InputDecoration(label: Text('Apellidos del usuario')),
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: (value) => (value??'').trim().isEmpty ? 'Este campo no puede estar vacío' : null,
                 ),
