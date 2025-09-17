@@ -31,7 +31,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Mis usuarios'),
-        backgroundColor: const Color.fromARGB(166, 245, 187, 255),
+        backgroundColor: const Color.fromARGB(166, 251, 228, 255),
       ),
       body: ref.read(usersProvider).isEmpty
       ? Center(

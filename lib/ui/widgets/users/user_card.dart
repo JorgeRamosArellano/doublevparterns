@@ -12,7 +12,9 @@ class UserCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 3,
       child: ListTile(
+        tileColor: Colors.white,
         leading: CircleAvatar(
           backgroundColor: UtilsColors.colorFromUserId(user.id),
           child: Icon(Icons.person, color: Colors.black),
