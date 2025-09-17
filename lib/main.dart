@@ -1,4 +1,5 @@
 import 'package:double_v_partners_jorge_test/routes/routes_three.dart';
+import 'package:double_v_partners_jorge_test/ui/theme/theme_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Jorge Ramos Test - DVP',
       routerConfig: routerTree,
       debugShowCheckedModeBanner: false,
+      theme: ThemeApp.ligthTheme,
     );
   }
 }

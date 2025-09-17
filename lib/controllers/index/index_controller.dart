@@ -9,7 +9,7 @@ class IndexController {
   IndexController({required WidgetRef ref}) : _ref = ref;
 
   void onTapStart(){
-    _ref.read(goRouterProvider).push(HomeScreen.route);
+    _ref.read(goRouterProvider).pushReplacement(HomeScreen.route);
   }
 
 

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class UserDetailsScreen extends StatelessWidget {
 
-  static final route = 'user-details/:id';
+  static final route = 'user-details';
 
-  final int userId;
+  final int? userId;
 
   const UserDetailsScreen({super.key, required this.userId});
 

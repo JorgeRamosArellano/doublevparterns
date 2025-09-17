@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 class Location {
-  final String country;
-  final String state;
-  final String city;
-  final String direction;
+  String country;
+  String state;
+  String city;
+  String direction;
 
   Location({
     required this.country,
@@ -44,6 +44,8 @@ class Location {
       direction: map['direction'] as String,
     );
   }
+
+  factory Location.empty() => Location(country: '', state: '', city: '', direction: '');
 
   String toJson() => json.encode(toMap());
 

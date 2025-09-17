@@ -19,9 +19,9 @@ final _homeRouteTree = GoRoute(
   },
   routes: [
     GoRoute(
-      path: UserDetailsScreen.route,
+      path: '${UserDetailsScreen.route}/:id',
       builder: (context, state) {
-        final userIdData = int.tryParse(state.pathParameters['id']??'') ?? 99999;
+        final userIdData = int.tryParse(state.pathParameters['id']??'');
         return UserDetailsScreen(userId: userIdData);
       },
     ),

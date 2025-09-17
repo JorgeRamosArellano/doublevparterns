@@ -4,11 +4,12 @@ import 'dart:convert';
 import 'package:double_v_partners_jorge_test/models/shared/location.dart';
 
 class User {
-  final int id;
-  final String name;
-  final String lastname;
-  final String birth;
-  final Location location;
+  
+  int id;
+  String name;
+  String lastname;
+  String birth;
+  Location location;
   
   User({
     required this.id,
@@ -53,6 +54,8 @@ class User {
       location: Location.fromMap(map['location'] as Map<String,dynamic>),
     );
   }
+
+  factory User.empty() => User(id: 0, name: '', lastname: '', birth: '', location: Location.empty());
 
   String toJson() => json.encode(toMap());
 
