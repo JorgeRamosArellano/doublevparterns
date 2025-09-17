@@ -32,7 +32,7 @@ class _IndexScreenState extends ConsumerState<IndexScreen> {
           mainAxisSize: MainAxisSize.min,
           spacing: size.height * 0.1,
           children: [
-            Text('DoubleVPartners - Jorge Ramos Test'),
+            Text('DoubleVPartners Test - Jorge Ramos Arellano'),
             FilledButton.icon(
               label: Text('Comenzar'),
               icon: Icon(Icons.keyboard_arrow_right_rounded),
